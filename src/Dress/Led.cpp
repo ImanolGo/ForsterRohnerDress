@@ -12,7 +12,7 @@
 
 const int Led::SIZE = 20;
 
-Led::Led(const ofPoint& position, int id): BasicVisual(position, SIZE, SIZE), m_id(id), m_showId(false)
+Led::Led(const ofPoint& position, int id): BasicVisual(position, SIZE, SIZE), m_id(id), m_showId(true)
 {
     this->setup();
 }
@@ -52,7 +52,7 @@ void Led::draw()
     ofFill();
     
     //ofRect(0, 0, m_width, m_height);
-    ofCircle(0, 0, m_width);
+    ofDrawCircle(0, 0, m_width);
     
     ofPopStyle();
     
