@@ -27,48 +27,48 @@ class ImageManager: public Manager
     
     static const int IMAGE_WIDTH;
     
-    public:
-
-        //! Constructor
-        ImageManager();
-
-        //! Destructor
-        ~ImageManager();
-
-        //! Setup the Image Manager
-        void setup();
+public:
     
-        //! Update the Image Manager
-        void update();
+    //! Constructor
+    ImageManager();
     
-        //! Draw the Image Manager
-        void draw();
+    //! Destructor
+    ~ImageManager();
     
-        void onRecordingChange(bool& value);
+    //! Setup the Image Manager
+    void setup();
     
-        void onMirroringChange(bool& value) {m_mirror = value;}
+    //! Update the Image Manager
+    void update();
     
-    private:
+    //! Draw the Image Manager
+    void draw();
     
-        void saveImage();
+    void onRecordingChange(bool& value);
     
-        void saveImageSample();
+    void onMirroringChange(bool& value) {m_mirror = value;}
     
-        void saveImageMirror();
+private:
     
-        void updateColorPixels();
+    void saveImage();
     
-        string getDateTime();
+    void saveImageSample();
     
-    private:
-  
-        typedef vector< ofColor > ColorVector;
+    void saveImageMirror();
     
-        bool                m_isRecording;
-        bool                m_mirror;
+    void updateColorPixels();
     
-        ofImage             m_image;
-        ColorVector         m_colors;
+    string getDateTime();
+    
+private:
+    
+    typedef vector< ofColor > ColorVector;
+    
+    bool                m_isRecording;
+    bool                m_mirror;
+    
+    ofImage             m_image;
+    ColorVector         m_colors;
 };
 
 

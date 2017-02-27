@@ -64,6 +64,8 @@ private:
     
     void setupModesGui();
     
+    void setupLedsGui();
+    
     void setupNoiseGui();
     
     void setupImageGui();
@@ -85,6 +87,7 @@ private:
     
     
     ofParameterGroup    m_parametersNoise;
+    ofParameterGroup    m_parametersLeds;
     ofParameterGroup    m_parametersModes;
     ofParameterGroup    m_parametersImage;
     ofParameterGroup    m_parametersVideo;
@@ -94,6 +97,8 @@ private:
     ofxButton           m_nextVideo;
     ofParameter<bool>   m_recordVideoLoops;
     ofParameter<bool>   m_videoTrail;
+    
+    ofParameter<float>    m_ledsSize;
     
     ofParameter<float>    m_audioLevel;
     ofxButton             m_nextAudio;

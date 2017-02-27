@@ -14,9 +14,9 @@
 #include "AppManager.h"
 
 
-DressManager::DressManager(): Manager(), m_isAltPressed(false)
+DressManager::DressManager(): Manager(), m_isAltPressed(false), m_showChannels(false)
 {
-	//Intentionally left empty
+    //Intentionally left empty
 }
 
 
@@ -28,11 +28,11 @@ DressManager::~DressManager()
 
 void DressManager::setup()
 {
-	if(m_initialized)
-		return;
-
-
-	Manager::setup();
+    if(m_initialized)
+        return;
+    
+    
+    Manager::setup();
     
     this->setupImages();
     this->setupScrollView();
@@ -49,12 +49,6 @@ void DressManager::setupImages()
     m_costumeImage =  ofPtr<ImageVisual> (new ImageVisual(position,resourceName));
     //m_costumeImage->setHeight(700,true);
     
-    m_costumeSvgImage =  ofPtr<SvgVisual> (new SvgVisual(position,resourceName));
-    //m_costumeImage->setHeight(700,true);
-
-    
-    //AppManager::getInstance().getViewManager().addVisual(m_costumeImage);
-    //m_costumeSvgImage->setHeight(1700,true);
 }
 
 
@@ -107,8 +101,8 @@ void DressManager::draw()
     ofEnableAlphaBlending();
     m_scrollView.begin();
     
-        m_costumeImage->draw();
-        this->drawCostumeLeds();
+    m_costumeImage->draw();
+    this->drawCostumeLeds();
     
     m_scrollView.end();
     ofDisableAlphaBlending();
@@ -136,4 +130,14 @@ void DressManager::pressedBackSpace()
         AppManager::getInstance().getLedsManager().deleteLastLed();
     }
 }
+
+void DressManager::toggleShowChannels()
+{
+    m_showChannels = !m_showChannels;
+    
+    AppManager::getInstance().getLedsManager().showChannels(m_showChannels);
+    
+}
+
+
 

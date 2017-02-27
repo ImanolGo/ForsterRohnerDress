@@ -17,7 +17,7 @@
 //========================== class OutputDataManager ==============================
 //===================================================================== =======
 /** \class OutputDataManager OutputDataManager.h
- *	\brief Class managing the binary data to be exported 
+ *	\brief Class managing the binary data to be exported
  *	\details it reads from the ded visuals and saves it in a binary file on demand
  */
 
@@ -28,48 +28,48 @@ class OutputDataManager: public Manager
     
     static const int NUM_DMX_CHANNELS;
     
-    public:
-
-        //! Constructor
-        OutputDataManager();
-
-        //! Destructor
-        ~OutputDataManager();
-
-        //! Setup the Image Manager
-        void setup();
+public:
     
-        //! Update the Image Manager
-        void update();
+    //! Constructor
+    OutputDataManager();
     
-        //! Draw the Image Manager
-        void draw();
+    //! Destructor
+    ~OutputDataManager();
     
-        void onRecordingChange(bool& value);
+    //! Setup the Image Manager
+    void setup();
     
-        void onMirroringChange(bool& value) {m_mirror = value;}
+    //! Update the Image Manager
+    void update();
     
-    private:
+    //! Draw the Image Manager
+    void draw();
     
-        void saveData();
+    void onRecordingChange(bool& value);
     
-        void saveDataSample();
+    void onMirroringChange(bool& value) {m_mirror = value;}
     
-        void saveDataMirror();
+private:
     
-        void updateColorPixels();
+    void saveData();
     
-        string getDateTime();
+    void saveDataSample();
     
-    private:
-  
-        typedef vector< ofColor > ColorVector;
+    void saveDataMirror();
     
-        bool                m_isRecording;
-        bool                m_mirror;
+    void updateColorPixels();
     
-        int                 m_numFrames;
-        ofFile              m_file;
+    string getDateTime();
+    
+private:
+    
+    typedef vector< ofColor > ColorVector;
+    
+    bool                m_isRecording;
+    bool                m_mirror;
+    
+    int                 m_numFrames;
+    ofFile              m_file;
 };
 
 

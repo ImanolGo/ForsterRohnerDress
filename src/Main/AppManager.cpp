@@ -53,7 +53,7 @@ void AppManager::setup()
 void AppManager::setupOF()
 {
     ofSetLogLevel(OF_LOG_NOTICE);
-    //ofSetFrameRate(25);
+    ofSetFrameRate(25);
     ofSetVerticalSync(true);
     ofSetEscapeQuitsApp(true);
 }

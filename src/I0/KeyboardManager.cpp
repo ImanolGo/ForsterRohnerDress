@@ -52,7 +52,8 @@ void KeyboardManager::keyPressed(ofKeyEventArgs &e)
     }
     
     if(key == ' ') {
-        AppManager::getInstance().toggleDebugMode();
+        AppManager::getInstance().getDressManager().toggleShowChannels();
+        //AppManager::getInstance().toggleDebugMode();
     }
     
     if(key == OF_KEY_ALT) {

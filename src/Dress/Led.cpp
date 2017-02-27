@@ -10,16 +10,29 @@
 #include "Led.h"
 
 
-const int Led::SIZE = 8;
+const int Led::SIZE = 20;
 
-Led::Led(const ofPoint& position, int id): BasicVisual(position, SIZE, SIZE), m_id(id)
+Led::Led(const ofPoint& position, int id): BasicVisual(position, SIZE, SIZE), m_id(id), m_showId(false)
 {
-    //Intentionaly left empty
+    this->setup();
 }
 
 Led::~Led()
 {
     //Intentionaly left empty
+}
+
+void Led::setup()
+{
+    ofVec3f position(0,0);
+    float fontSize = m_width;
+    string text = ofToString(m_id);
+    string fontName ="fonts/open-sans/OpenSans-Bold.ttf";
+    ofColor textColor = ofColor::white;
+    
+    m_idText = ofPtr<TextVisual> (new TextVisual(position,2*m_width,m_height, true));
+    m_idText->setText(text,fontName,fontSize,textColor);
+    
 }
 
 void Led::draw()
@@ -38,10 +51,14 @@ void Led::draw()
     ofSetCircleResolution(20);
     ofFill();
     
-        //ofRect(0, 0, m_width, m_height);
-        ofDrawCircle(0, 0, m_width);
-
+    //ofRect(0, 0, m_width, m_height);
+    ofCircle(0, 0, m_width);
+    
     ofPopStyle();
+    
+    if(m_showId){
+        m_idText->draw();
+    }
     ofPopMatrix();
 }
 
@@ -50,7 +67,7 @@ void Led::draw(int width, int height)
     
     ofPushMatrix();
     ofTranslate(m_position.x * width, m_position.y * height);
-        this->draw();
+    this->draw();
     ofPopMatrix();
 }
 

@@ -20,7 +20,7 @@ const int OutputDataManager::NUM_DMX_CHANNELS = 512;
 
 OutputDataManager::OutputDataManager(): Manager(), m_isRecording(false), m_mirror(false), m_numFrames(0)
 {
-	//Intentionally left empty
+    //Intentionally left empty
 }
 
 
@@ -32,11 +32,11 @@ OutputDataManager::~OutputDataManager()
 
 void OutputDataManager::setup()
 {
-	if(m_initialized)
-		return;
-
-
-	Manager::setup();
+    if(m_initialized)
+        return;
+    
+    
+    Manager::setup();
     
     m_file.close();
     ofLogNotice() <<"OutputDataManager::initialized" ;
@@ -49,7 +49,7 @@ void OutputDataManager::setup()
 void OutputDataManager::update()
 {
     if (m_isRecording) {
-         this->updateColorPixels();
+        this->updateColorPixels();
     }
 }
 
@@ -127,11 +127,11 @@ void OutputDataManager::saveDataSample()
     
     ofLogNotice() <<"OutputDataManager::saveDataSample ->  num_channels = " << num_channels;
     ofLogNotice() <<"OutputDataManager::saveDataSample ->  frames = " << m_numFrames;
-    ofLogNotice() <<"OutputDataManager::saveDataSample ->  file size = " << m_file.getSize();
+    //ofLogNotice() <<"OutputDataManager::saveDataSample ->  file size = " << m_file.getSize();
     
- 
+    
     string fileName = "output/output_"+ getDateTime()  + "_" + ofToString(m_numFrames) + ".rbf";
-  //  m_file.renameTo(fileName,true, true);
+    //  m_file.renameTo(fileName,true, true);
     
     
     

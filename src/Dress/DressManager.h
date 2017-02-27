@@ -11,7 +11,6 @@
 
 #include "Manager.h"
 #include "ImageVisual.h"
-#include "SvgVisual.h"
 #include "ofxScrollView.h"
 
 //========================== class DressManager ==============================
@@ -24,55 +23,57 @@
 
 class DressManager: public Manager
 {
-
+    
     static const int NUM_HALO_LEDS;
     
-    public:
-
-        //! Constructor
-        DressManager();
-
-        //! Destructor
-        ~DressManager();
-
-        //! Setup the Halo Manager
-        void setup();
-
-        //! Update the Halo Manager
-        void update();
+public:
     
-        //! Draw the Halo Manager
-        void draw();
+    //! Constructor
+    DressManager();
     
-        float getWidth() const {return m_costumeImage->getOriginalWidth();}
+    //! Destructor
+    ~DressManager();
     
-        float getHeight() const {return m_costumeImage->getOriginalHeight();}
+    //! Setup the Halo Manager
+    void setup();
     
-        const ofRectangle& getWindowRect()  {return m_scrollView.getWindowRect();}
+    //! Update the Halo Manager
+    void update();
     
-        void pressedAlt(bool isAltPressed) {m_isAltPressed = isAltPressed;}
+    //! Draw the Halo Manager
+    void draw();
     
-        void pressedBackSpace();
+    float getWidth() const {return m_costumeImage->getOriginalWidth();}
     
-        void pressedMouse(ofMouseEventArgs &e);
+    float getHeight() const {return m_costumeImage->getOriginalHeight();}
     
-    private:
+    const ofRectangle& getWindowRect()  {return m_scrollView.getWindowRect();}
     
-        void setupImages();
+    void pressedAlt(bool isAltPressed) {m_isAltPressed = isAltPressed;}
     
-        void setupBlur();
+    void pressedBackSpace();
     
-        void setupScrollView();
+    void pressedMouse(ofMouseEventArgs &e);
     
-        void drawCostumeLeds();
+    void toggleShowChannels();
+    
+private:
+    
+    void setupImages();
+    
+    void setupBlur();
+    
+    void setupScrollView();
+    
+    void drawCostumeLeds();
     
     
-        ofPtr<ImageVisual>  m_costumeImage;
-        ofPtr<SvgVisual>    m_costumeSvgImage;
+    ofPtr<ImageVisual>  m_costumeImage;
     
-        ofxScrollView       m_scrollView;
+    ofxScrollView       m_scrollView;
     
-        bool                m_isAltPressed;
+    bool                m_isAltPressed;
+    bool                m_showChannels;
     
 };
 

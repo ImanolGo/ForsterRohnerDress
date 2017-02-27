@@ -36,7 +36,7 @@
 		<Brightness>193.294</Brightness>
 	</Color>
 <group>
-		<FPS>60.3749</FPS>
+		<FPS>24.2983</FPS>
 		<Modes>
 			<Video>1</Video>
 			<Noise>0</Noise>
@@ -63,6 +63,9 @@
 			<Noise_Frequency>0.4</Noise_Frequency>
 			<Noise_Speed>1</Noise_Speed>
 		</Noise>
+	<Leds>
+			<Size>18.7289</Size>
+		</Leds>
 	</group>
 <HeroDress>
 		<FPS>58.9903</FPS>

@@ -11,31 +11,40 @@
 
 #include "ofMain.h"
 #include "BasicVisual.h"
+#include "TextVisual.h"
 
 
 class Led: public BasicVisual {
     
     static const int SIZE;
     
-    public:
+public:
     
-        Led(const ofPoint& position, int id);
+    Led(const ofPoint& position, int id);
     
-        virtual ~Led();
-       
-        void draw();
+    virtual ~Led();
     
-        void draw(int width, int height);
+    void draw();
     
-        int getId() const {return m_id;}
+    void draw(int width, int height);
     
-        void normalize(const ofRectangle& boundingBox);
+    int getId() const {return m_id;}
     
-        void setPixelColor(ofPixelsRef pixels);
+    void normalize(const ofRectangle& boundingBox);
     
-    private:
-            
-        int m_id;
+    void setPixelColor(ofPixelsRef pixels);
+    
+    void showId(bool _showId) {m_showId = _showId;}
+    
+private:
+    
+    void setup();
+    
+private:
+    
+    int m_id;
+    ofPtr<TextVisual>  m_idText;
+    bool        m_showId;
 };
 
 

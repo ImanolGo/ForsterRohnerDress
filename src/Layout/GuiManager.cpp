@@ -41,6 +41,7 @@ void GuiManager::setup()
 
     this->setupGuiParameters();
     this->setupModesGui();
+    this->setupLedsGui();
     this->setupLayoutGui();
     this->setupImageGui();
     this->setupVideoGui();
@@ -62,6 +63,20 @@ void GuiManager::setupGuiParameters()
     ofxGuiSetFont( "fonts/open-sans/OpenSans-Semibold.ttf", 9 );
 
 }
+
+void GuiManager::setupLedsGui()
+{
+    auto ledsManager = &AppManager::getInstance().getLedsManager();
+    
+    m_parametersLeds.setName("Leds");
+    
+    m_ledsSize.set("Size", 8.0, 2.0, 40);
+    m_ledsSize.addListener(ledsManager, &LedsManager::onSetLedsSize);
+    m_parametersLeds.add(m_ledsSize);
+    
+    m_gui.add(m_parametersLeds);
+}
+
 
 
 void GuiManager::setupModesGui()

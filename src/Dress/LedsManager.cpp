@@ -16,7 +16,7 @@
 const string LedsManager::LEDS_LIST_PATH = "leds/";
 
 
-LedsManager::LedsManager(): Manager()
+LedsManager::LedsManager(): Manager(), m_ledsSize(8.0)
 {
 	//Intentionally left empty
 }
@@ -176,8 +176,9 @@ void LedsManager::normalizeLeds()
 
 void LedsManager::createLed(const ofPoint& position)
 {
-    ofPtr<Led> led = ofPtr<Led> (new Led ( position, m_leds.size() ) );
+    ofPtr<Led> led = ofPtr<Led> (new Led ( position, m_leds.size() + 1) );
     led->setColor(ofColor::black);
+    led->setWidth(m_ledsSize);
     m_leds.push_back(led);
 
     
@@ -245,6 +246,27 @@ void LedsManager::drawLeds(int width, int height)
         led->draw(width,height);
     }
 }
+
+void LedsManager::onSetLedsSize(float &value)
+{
+    m_ledsSize = value;
+    
+    for(auto led: m_leds){
+        led->setWidth(m_ledsSize);
+    }
+}
+
+void LedsManager::showChannels(bool _showChannels)
+{
+    for(auto led: m_leds)
+    {
+        led->showId(_showChannels);
+    }
+}
+
+
+
+
 
 
 

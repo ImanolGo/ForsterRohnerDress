@@ -63,6 +63,9 @@ class LedsManager: public Manager
     
         void deleteLastLed();
     
+        void onSetLedsSize(float &value);
+    
+        void showChannels(bool _showChannels);
     
     private:
     
@@ -94,6 +97,8 @@ class LedsManager: public Manager
     
         LedVector       m_leds;
         ofRectangle     m_boundingBox;
+    
+        float           m_ledsSize;
     
 };
 
