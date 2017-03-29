@@ -68,9 +68,9 @@ void GuiManager::setupLedsGui()
 {
     auto ledsManager = &AppManager::getInstance().getLedsManager();
     
-    m_parametersLeds.setName("Leds");
+    m_parametersLeds.setName("Dress");
     
-    m_ledsSize.set("Size", 8.0, 2.0, 40);
+    m_ledsSize.set("Leds Size", 8.0, 2.0, 40);
     m_ledsSize.addListener(ledsManager, &LedsManager::onSetLedsSize);
     m_parametersLeds.add(m_ledsSize);
     

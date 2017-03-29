@@ -12,7 +12,7 @@
 
 const int Led::SIZE = 20;
 
-Led::Led(const ofPoint& position, int id): BasicVisual(position, SIZE, SIZE), m_id(id), m_showId(true)
+Led::Led(const ofPoint& position, int id): BasicVisual(position, SIZE, SIZE), m_id(id), m_showId(false)
 {
     this->setup();
 }
@@ -24,6 +24,21 @@ Led::~Led()
 
 void Led::setup()
 {
+   // this->setupImages();
+    this->setupText();
+}
+
+
+void Led::setupImages()
+{
+    ofVec3f position(0,0);
+    string resourceName = "brush";
+    m_image = ofPtr<ImageVisual> (new ImageVisual(m_position,resourceName, true));
+}
+
+void Led::setupText()
+{
+    
     ofVec3f position(0,0);
     float fontSize = m_width;
     string text = ofToString(m_id);
@@ -34,6 +49,7 @@ void Led::setup()
     m_idText->setText(text,fontName,fontSize,textColor);
     
 }
+
 
 void Led::draw()
 {
@@ -81,5 +97,7 @@ void Led::normalize(const ofRectangle& boundingBox)
 void Led::setPixelColor(ofPixelsRef pixels)
 {
     m_color = pixels.getColor(m_position.x * pixels.getWidth(), m_position.y * pixels.getHeight());
+    int brightness = m_color.getBrightness();
+    m_color = ofColor(brightness);
 }
 

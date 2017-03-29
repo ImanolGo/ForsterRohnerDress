@@ -103,9 +103,6 @@ void VideoManager::update()
         return;
     }
     
-    
-
-    
     //ofLogNotice()<< "VideoManager::update: ";
     
     if(m_videoPlayer.isFrameNew())
@@ -121,7 +118,7 @@ void VideoManager::update()
         }
     }
     
-    if(m_recordVideoLoops && !m_videoPlayer.isPlaying()){
+    if(m_recordVideoLoops && m_videoPlayer.getIsMovieDone()){
         m_playVideo = false;
         AppManager::getInstance().getImageManager().onRecordingChange(m_playVideo);
 
@@ -129,7 +126,7 @@ void VideoManager::update()
         onNextVideoChange();
     }
     
-    m_videoPlayer.update();
+     m_videoPlayer.update();
     
 }
 
@@ -209,9 +206,10 @@ void VideoManager::onNextVideoChange()
         }
     }
     
-   // m_videoPlayer.close();
+    //m_videoPlayer.closeMovie();
     
     m_videoPlayer.load(m_currentVideo);
+    ofLogNotice()<< "VideoManager::onNextVideoChange: Video Loaded" << m_currentVideo;
     
     m_videoPlayer.stop();
     
@@ -225,10 +223,12 @@ void VideoManager::onNextVideoChange()
         
         m_videoPlayer.play();
         AppManager::getInstance().getImageManager().onRecordingChange(m_playVideo);
-        
+        m_frameNumber = -1;
     }
     
     this->setupFbo();
+    
+    
 }
 
 

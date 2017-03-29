@@ -143,7 +143,7 @@ void ImageManager::saveImageMirror()
     
     m_image.update(); // uploads the new pixels to the gfx card
     
-    string fileName = "images/saved/image_vase_" + getDateTime() +  ".bmp";
+    string fileName = "images/saved/image_FR_" + getDateTime() +  ".bmp";
     m_image.save(fileName);
     
     ofLogNotice() <<"ImageManager::saveImageMirror ->  Saved " << fileName;
@@ -195,7 +195,7 @@ void ImageManager::saveImageSample()
     
     m_image.update(); // uploads the new pixels to the gfx card
     
-    string fileName = "images/saved/image_vase_" + getDateTime() +  ".bmp";
+    string fileName = "images/saved/image_" + getDateTime() +  ".bmp";
     m_image.save(fileName);
     
     ofLogNotice() <<"ImageManager::saveImageSample ->  Saved " << fileName;

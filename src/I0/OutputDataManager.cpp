@@ -83,6 +83,8 @@ void OutputDataManager::updateColorPixels()
 
 void OutputDataManager::onRecordingChange(bool& value)
 {
+     ofLogNotice() <<"OutputDataManager::onRecordingChange -> " << value;
+    
     if (m_isRecording && !value) {
         this->saveData();
     }

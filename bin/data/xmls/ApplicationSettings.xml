@@ -13,6 +13,7 @@
   <textures>
 
     <texture name="Equalizer" path="images/general/equalizer.png"/>
+    <texture name="Brush" path="images/general/brush.png"/>
     <texture name="DressLayout" path="images/dress/MarleneDressSoftwareTransparent.png"/>
 
   </textures>

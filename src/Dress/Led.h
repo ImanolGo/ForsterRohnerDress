@@ -12,6 +12,7 @@
 #include "ofMain.h"
 #include "BasicVisual.h"
 #include "TextVisual.h"
+#include "ImageVisual.h"
 
 
 class Led: public BasicVisual {
@@ -40,10 +41,15 @@ private:
     
     void setup();
     
+    void setupImages();
+    
+    void setupText();
+    
 private:
     
     int m_id;
-    ofPtr<TextVisual>  m_idText;
+    ofPtr<TextVisual>   m_idText;
+    ofPtr<ImageVisual>  m_image;
     bool        m_showId;
 };
 

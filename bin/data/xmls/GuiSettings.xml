@@ -36,7 +36,7 @@
 		<Brightness>193.294</Brightness>
 	</Color>
 <group>
-		<FPS>24.2618</FPS>
+		<FPS>58.3649</FPS>
 		<Modes>
 			<Video>1</Video>
 			<Noise>0</Noise>
@@ -44,7 +44,7 @@
 		</Modes>
 		<Color>
 			<Hue>153.149</Hue>
-			<Saturation>0</Saturation>
+			<Saturation>57.2449</Saturation>
 			<Brightness>255</Brightness>
 		</Color>
 		<Image_Export>
@@ -52,20 +52,23 @@
 			<Mirror>0</Mirror>
 		</Image_Export>
 		<Video>
-			<Record_Video_Loops>0</Record_Video_Loops>
+			<Record_Video_Loops>1</Record_Video_Loops>
 			<Video_Trail>0</Video_Trail>
 		</Video>
 		<Audio>
 			<Audio_Level>0.5</Audio_Level>
 		</Audio>
 		<Noise>
-			<Noise_Resolution>64</Noise_Resolution>
-			<Noise_Frequency>0.4</Noise_Frequency>
-			<Noise_Speed>1</Noise_Speed>
+			<Noise_Resolution>6</Noise_Resolution>
+			<Noise_Frequency>0.163265</Noise_Frequency>
+			<Noise_Speed>0.350738</Noise_Speed>
 		</Noise>
 	<Leds>
 			<Size>18.7289</Size>
 		</Leds>
+	<Dress>
+			<Leds_Size>20.6122</Leds_Size>
+		</Dress>
 	</group>
 <HeroDress>
 		<FPS>58.9903</FPS>
