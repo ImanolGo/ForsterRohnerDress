@@ -1,4 +1,4 @@
-# ForsterRohnerDress
+# MarleneGlows
 
 Developed under OpenFrameworks v0.9.8
 
